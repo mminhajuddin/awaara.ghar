@@ -13,10 +13,14 @@ nav {
 }
 
 nav a {
-  margin: 0 1em;
-  color: white;
   text-decoration: none;
+  padding: 8px 12px;
+  color: black;
+}
+
+nav a.active {
   font-weight: bold;
+  border-bottom: 2px solid #f06d06; /* highlight color */
 }
 
 header {
