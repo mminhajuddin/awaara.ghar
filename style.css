@@ -70,10 +70,11 @@ form button {
   cursor: pointer;
 }
 .business-name {
-  font-family: 'Herr Von Muellerhoff', cursive;
+  font-family: 'Kapakana', cursive;
   font-size: 5rem;
   color: #b85c38; /* warm henna-inspired color */
   text-align: center;
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
