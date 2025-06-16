@@ -66,6 +66,18 @@
     <p>Contact us: <a href="mailto:mahamminhajuddin@gmail.com">mahamminhajuddin@gmail.com</a></p>
     <p>Instagram: <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a></p>
   </footer>
+  <script>
+  const links = document.querySelectorAll('nav a');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
 
