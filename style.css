@@ -82,6 +82,17 @@ nav a.active {
   transition: transform 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 90%;
+  }
+}
+
 .hero-image img:hover {
   transform: scale(1.02);
 }
