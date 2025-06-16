@@ -3,27 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Awaara Ghar is a Chicago-based henna collective creating culturally rooted, intentional designs with warmth and artistry." />
   <title>Awaara Ghar</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <nav>
+  <nav aria-label="Main Navigation">
     <a href="index.html" class="active">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <header>
-    <h1 class="business-name">Awaara Ghar</h1>
-    <p class="tagline">where friendship & creativity meet culturally informed designs</p>
-    <a href="contact.html" class="cta-button">Book a Session</a>
+  <header class="main-header">
+    <div class="logo-and-cta">
+      <h1 class="business-name">Awaara Ghar</h1>
+      <a href="contact.html" class="cta-button" aria-label="Book a henna session">Book a Session</a>
+    </div>
+    <p class="tagline">Where friendship & creativity meet culturally informed designs</p>
   </header>
 
-  <main>
-    <h2>Welcome</h2>
-    <p>Hi, we're Awaara Ghar, a Chicago-based henna collective. Browse our portfolio or <a href="contact.html">get in touch</a> to book your session!</p>
-  </main>
+  <section class="hero-section">
+    <div class="hero-text">
+      <h2>Killer Headlines: Make a Grand Entrance</h2>
+      <p>Experience the joy of culturally rooted henna created with care and intention.</p>
+      <a href="portfolio.html" class="cta-button" aria-label="View our henna portfolio">View Portfolio</a>
+    </div>
+    <div class="hero-image">
+      <img src="your-image.jpg" alt="A detailed henna design on a hand" />
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <h3>Answer Burning Questions</h3>
+    <details>
+      <summary>What types of henna do you offer?</summary>
+      <p>We offer traditional bridal, party, and custom designs tailored to your needs.</p>
+    </details>
+    <details>
+      <summary>Do you use natural henna?</summary>
+      <p>Yes! Our blends are made with fresh, natural ingredients — no chemicals or dyes.</p>
+    </details>
+  </section>
+
+  <section class="testimonials">
+    <h3>Testimonials</h3>
+    <div class="testimonial">
+      <p>"The designs were stunning and the artists were so warm!"</p>
+      <span>★★★★★ – Hafsa H.</span>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <h3>Clear and Concise Messaging and CTA</h3>
+    <p>Ready to get henna that tells your story truthfully?</p>
+    <a href="contact.html" class="cta-button" aria-label="Book a session now">Book Now</a>
+  </section>
+
+  <footer>
+    <h4>Clear Contact Information</h4>
+    <p>Contact us: <a href="mailto:mahamminhajuddin@gmail.com">mahamminhajuddin@gmail.com</a></p>
+    <p>Instagram: <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a></p>
+  </footer>
+  <script>
+  const links = document.querySelectorAll('nav a');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
+
