@@ -19,22 +19,27 @@
   </header>
 
   <main class="gallery">
-    <img src="images/henna1.jpg" alt="Henna design 1" />
-    <img src="images/henna2.jpg" alt="Henna design 2" />
-    <img src="images/henna3.jpg" alt="Henna design 3" />
-    <!-- Add more images here -->
+    <img src="images/IMG_5970.JPG" alt="Henna design 1" />
+    <img src="images/IMG_5987.JPG" alt="Henna design 2" />
+    <img src="images/IMG_6022.JPG" alt="Henna design 3" />
+    <img src="images/IMG_6039.JPG" alt="Henna design 4" />
+    <img src="images/IMG_6074.JPG" alt="Henna design 5" />
+    <img src="images/IMG_6194.JPG" alt="Henna design 6" />
+    <img src="images/IMG_6235.JPG" alt="Henna design 7" />
+    <img src="images/IMG_6241.JPG" alt="Henna design 8" />
   </main>
-  <script>
-  const links = document.querySelectorAll('nav a');
-  const currentPage = window.location.pathname.split('/').pop();
 
-  links.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
-  });
-</script>
+  <script>
+    const links = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
