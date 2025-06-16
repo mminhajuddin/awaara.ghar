@@ -25,5 +25,17 @@
     <p>We offer bookings for individuals and groups, and we’re available for events year-round.</p>
     <p>Check out our <a href="portfolio.html">portfolio</a> to see our work, or <a href="contact.html">get in touch</a> to book a session!</p>
   </main>
+  <script>
+  const links = document.querySelectorAll('nav a');
+  const currentPage = window.location.pathname.split('/').pop();
+
+  links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+</script>
 </body>
 </html>
