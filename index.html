@@ -10,33 +10,39 @@
 </head>
 <body>
   <nav aria-label="Main Navigation">
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
+    <div class="nav-content">
+      <div class="nav-left">
+        <img src="images/logo.png" alt="Awaara Ghar Logo" class="nav-logo" />
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="contact.html" class="cta-button nav-cta" aria-label="Book a henna session">Book a Session</a>
+      </div>
+    </div>
   </nav>
 
   <header class="main-header">
-    <div class="logo-and-cta">
-      <img src="images/logo.png" alt="Awaara Ghar Logo" class="logo-image" />
-      <a href="contact.html" class="cta-button" aria-label="Book a henna session">Book a Session</a>
-    </div>
     <p class="tagline">Where friendship & creativity meet culturally informed designs</p>
   </header>
 
   <section class="hero-section">
     <div class="hero-text">
-      <h2>Killer Headlines: Make a Grand Entrance</h2>
+      <h2>Tell Your Story Through Henna</h2>
       <p>Experience the joy of culturally rooted henna created with care and intention.</p>
       <a href="portfolio.html" class="cta-button" aria-label="View our henna portfolio">View Portfolio</a>
     </div>
     <div class="hero-image">
-      <img src="images/cover_image.jpg" alt="A detailed henna design on a hand" />
+      <img src="your-image.jpg" alt="A detailed henna design on a hand" />
     </div>
   </section>
 
   <section class="faq-section">
-    <h3>Answer Burning Questions</h3>
+    <h3>Frequently Asked Questions</h3>
     <details>
       <summary>What types of henna do you offer?</summary>
       <p>We offer traditional bridal, party, and custom designs tailored to your needs.</p>
@@ -52,32 +58,31 @@
     <div class="testimonial">
       <p>"The designs were stunning and the artists were so warm!"</p>
       <span>★★★★★ – Hafsa H.</span>
+      <p>"It was such a fun experience to customize my henna with Awaara Ghar's natural and organic henna!"</p>
+      <span>★★★★★ – Safa L.</span>
     </div>
   </section>
 
   <section class="cta-banner">
-    <h3>Clear and Concise Messaging and CTA</h3>
-    <p>Ready to get henna that tells your story truthfully?</p>
+    <h3>Ready to get henna that tells your story truthfully?</h3>
     <a href="contact.html" class="cta-button" aria-label="Book a session now">Book Now</a>
   </section>
 
   <footer>
-    <h4>Clear Contact Information</h4>
-    <p>Contact us: <a href="mailto:mahamminhajuddin@gmail.com">mahamminhajuddin@gmail.com</a></p>
+    <h4> Contact Us</h4>
     <p>Instagram: <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a></p>
   </footer>
   <script>
-  const links = document.querySelectorAll('nav a');
-  const currentPage = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.split('/').pop();
 
-  links.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
-  });
-</script>
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
-
