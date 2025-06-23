@@ -9,8 +9,32 @@ body {
 
 nav {
   background-color: #218380; /* teal */
-  padding: 1em;
-  text-align: center;
+  padding: 1em 2em;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-left,
+.nav-links,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  max-height: 60px;
+  display: block;
+}
+
+.nav-links {
+  gap: 1.5em;
 }
 
 nav a {
@@ -26,17 +50,21 @@ nav a.active {
   color: #fbb13c; /* saffron */
 }
 
+.nav-cta {
+  background-color: #d81159; /* magenta */
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Main header just contains tagline now */
 .main-header {
   background-color: #fbb13c; /* saffron */
   text-align: center;
   padding: 2em 1em;
-}
-
-.business-name {
-  font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: 5rem;
-  color: #d81159; /* bold magenta */
-  margin: 0;
 }
 
 .tagline {
