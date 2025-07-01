@@ -51,31 +51,21 @@ header h1 {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
   padding: 16px;
+  align-items: start; /* align items at top */
 }
 
-.gallery-item {
-  position: relative;
+.gallery img {
   width: 100%;
-  padding-top: 125%; /* ~4:5 aspect ratio */
-  overflow: hidden;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  cursor: pointer;
-  background-color: #fff8f0;
-}
-
-.gallery-item img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
   transition: transform 0.3s ease;
+  cursor: pointer;
   display: block;
+  object-fit: contain;
 }
 
-.gallery-item img:hover {
+.gallery img:hover {
   transform: scale(1.05);
 }
 
