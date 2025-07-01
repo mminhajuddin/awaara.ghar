@@ -19,13 +19,13 @@
   </header>
 
   <main class="gallery">
-    <img src="images/IMG_5970.JPG" alt="Henna design 1" />
-    <img src="images/IMG_5987.JPG" alt="Henna design 2" />
-    <img src="images/IMG_6022.JPG" alt="Henna design 3" />
-    <img src="images/IMG_6074.JPG" alt="Henna design 4" />
-    <img src="images/IMG_6194.JPG" alt="Henna design 5" />
-    <img src="images/IMG_6235.JPG" alt="Henna design 6" />
-    <img src="images/IMG_6241.JPG" alt="Henna design 7" />
+    <div class="gallery-item"><img src="images/IMG_5970.JPG" alt="Henna design 1" /></div>
+    <div class="gallery-item"><img src="images/IMG_5987.JPG" alt="Henna design 2" /></div>
+    <div class="gallery-item"><img src="images/IMG_6022.JPG" alt="Henna design 3" /></div>
+    <div class="gallery-item"><img src="images/IMG_6074.JPG" alt="Henna design 4" /></div>
+    <div class="gallery-item"><img src="images/IMG_6194.JPG" alt="Henna design 5" /></div>
+    <div class="gallery-item"><img src="images/IMG_6235.JPG" alt="Henna design 6" /></div>
+    <div class="gallery-item"><img src="images/IMG_6241.JPG" alt="Henna design 7" /></div>
   </main>
 
   <!-- Lightbox Overlay -->
@@ -50,13 +50,37 @@
       }
     });
 
+    // Masonry grid row-span calculation
+    function resizeAllGridItems(){
+      const gallery = document.querySelector('.gallery');
+      const rowHeight = parseInt(window.getComputedStyle(gallery).getPropertyValue('grid-auto-rows'));
+      const rowGap = parseInt(window.getComputedStyle(gallery).getPropertyValue('gap'));
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const img = item.querySelector('img');
+        if (!img.complete) {
+          img.addEventListener('load', () => {
+            const height = img.getBoundingClientRect().height;
+            const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = "span " + rowSpan;
+          });
+        } else {
+          const height = img.getBoundingClientRect().height;
+          const rowSpan = Math.ceil((height + rowGap) / (rowHeight + rowGap));
+          item.style.gridRowEnd = "span " + rowSpan;
+        }
+      });
+    }
+
+    window.addEventListener('load', resizeAllGridItems);
+    window.addEventListener('resize', resizeAllGridItems);
+
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('.lightbox-content img');
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
-    const galleryItems = document.querySelectorAll('.gallery img');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
 
     let currentIndex = 0;
 
@@ -76,7 +100,7 @@
         lightbox.hidden = true;
         lightboxImg.src = '';
         lightboxImg.alt = '';
-      }, 400); // matches CSS fade duration
+      }, 400);
     }
 
     function showPrev() {
@@ -97,19 +121,15 @@
     prevBtn.addEventListener('click', showPrev);
     nextBtn.addEventListener('click', showNext);
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', e => {
       if (lightbox.hidden) return;
       if (e.key === 'Escape') hideLightbox();
       if (e.key === 'ArrowLeft') showPrev();
       if (e.key === 'ArrowRight') showNext();
     });
 
-    // Close lightbox clicking outside image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) {
-        hideLightbox();
-      }
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) hideLightbox();
     });
   </script>
 </body>
