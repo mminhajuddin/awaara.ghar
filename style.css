@@ -10,8 +10,12 @@ body {
 
 /* === Navigation === */
 nav {
-  background-color: #218380;
+  background-color: #218380; /* teal */
   padding: 1em 2em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 nav a {
@@ -30,13 +34,14 @@ nav a:hover:not(.active) {
 
 nav a.active {
   text-decoration: underline;
-  color: #fbb13c;
+  color: #fbb13c; /* saffron */
 }
 
-/* === Header === */
+/* === Header & Tagline === */
 header {
+  background-color: #fbb13c; /* saffron */
   text-align: center;
-  padding: 1.5em 1em;
+  padding: 2em 1em;
 }
 
 header h1 {
@@ -45,139 +50,173 @@ header h1 {
   margin: 0;
 }
 
-/* === Masonry Gallery === */
+.tagline {
+  font-size: 1.25rem;
+  margin: 1em 0;
+}
+
+/* === Call to Action Buttons === */
+.cta-button {
+  background-color: #d81159; /* magenta */
+  color: white;
+  padding: 0.75em 1.5em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #b80d4c;
+}
+
+/* === Hero Section === */
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff8f0;
+  padding: 2em 1em;
+  gap: 2em;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+
+.hero-image img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.02);
+}
+
+.logo-image {
+  max-width: 280px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* === Gallery Grid (Portfolio Page) === */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 30px; /* increased for better sizing */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
-  padding: 16px;
+  padding: 20px;
 }
 
-.gallery-item {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  cursor: pointer;
-}
-
-.gallery-item img {
+.gallery img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  user-select: none;
-}
-
-.gallery-item img:hover {
-  transform: scale(1.05);
-}
-
-/* === Lightbox overlay === */
-.lightbox-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
-.lightbox-overlay.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  animation: zoomIn 0.4s ease forwards;
-}
-
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255,255,255,0.3);
-  display: block;
-  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
 
-.lightbox-content img:hover {
-  transform: scale(1.03);
+.gallery img:hover {
+  transform: scale(1.02);
 }
 
-/* === Lightbox buttons === */
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.7);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+/* === FAQ Section === */
+.faq-section {
+  padding: 2em 1em;
+  background-color: #ffffff;
   text-align: center;
-  font-weight: bold;
-  font-size: 24px;
-  color: #333;
+}
+
+.faq-section h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1em;
+}
+
+.faq-section details {
+  margin: 1em auto;
+  max-width: 600px;
+  background: #fbb13c;
+  padding: 1em;
+  border-radius: 5px;
   cursor: pointer;
-  user-select: none;
-  transition: background 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-weight: bold;
+  color: #333;
 }
 
-.lightbox-close {
-  top: 10px;
-  right: 10px;
-  transform: none;
-  font-size: 28px;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
+.faq-section details[open] {
+  background-color: #ffe3b3;
+}
+
+/* === Testimonials === */
+.testimonials {
+  background-color: #fff8f0;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.testimonials h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1em;
+}
+
+.testimonial {
+  max-width: 600px;
+  margin: auto;
+  font-style: italic;
+  color: #444;
+}
+
+/* === Call to Action Banner === */
+.cta-banner {
+  background-color: #218380; /* teal */
+  color: #fff;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.cta-banner h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+/* === Footer === */
+footer {
+  background-color: #333;
   color: white;
-  background: rgba(0,0,0,0.6);
-  box-shadow: none;
+  text-align: center;
+  padding: 1.5em 1em;
+  font-size: 0.9rem;
 }
 
-.lightbox-close:hover,
-.lightbox-prev:hover,
-.lightbox-next:hover {
-  background: rgba(255,255,255,0.9);
-}
-
-.lightbox-prev {
-  left: 10px;
-}
-
-.lightbox-next {
-  right: 10px;
+footer a {
+  color: #fbb13c;
+  text-decoration: none;
 }
 
 /* === Responsive === */
 @media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 90%;
+  }
+
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
