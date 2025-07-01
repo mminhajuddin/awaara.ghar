@@ -1,7 +1,7 @@
 /* === Base Styles === */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fff8f0; /* creamy white */
+  background: #fff8f0;
   color: #333;
   margin: 0;
   padding: 0;
@@ -10,28 +10,8 @@ body {
 
 /* === Navigation === */
 nav {
-  background-color: #218380; /* teal */
+  background-color: #218380;
   padding: 1em 2em;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.nav-left,
-.nav-links,
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.nav-links {
-  gap: 1.5em;
 }
 
 nav a {
@@ -45,7 +25,7 @@ nav a {
 }
 
 nav a:hover:not(.active) {
-  color: #fbb13c; /* saffron highlight on hover */
+  color: #fbb13c;
 }
 
 nav a.active {
@@ -53,176 +33,16 @@ nav a.active {
   color: #fbb13c;
 }
 
-.nav-cta {
-  background-color: #d81159; /* magenta */
-  padding: 0.5em 1em;
-  font-size: 0.9rem;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.nav-cta:hover {
-  background-color: #b10e47; /* slightly darker magenta */
-}
-
-/* === Logo === */
-.logo-image {
-  max-width: 350px; /* Increased size */
-  max-height: 80px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* === Main Header === */
-.main-header {
-  background-color: #fbb13c; /* saffron */
-  text-align: center;
-  padding: 2em 1em;
-}
-
-.main-header h1 {
-  margin: 0.5em 0 0.25em;
-  font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: 2.5rem;
-}
-
-.tagline {
-  font-size: 1.25rem;
-  margin: 1em 0 0;
-}
-
-/* === Buttons === */
-.cta-button {
-  background-color: #d81159; /* magenta */
-  color: white;
-  padding: 0.75em 1.5em;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #b10e47;
-}
-
-/* === Hero Section === */
-.hero-section {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #fff8f0;
-  padding: 2em 1em;
-  gap: 2em;
-  text-align: left;
-}
-
-.hero-text {
-  max-width: 500px;
-}
-
-.hero-text h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5em;
-}
-
-.hero-image img {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-  display: block;
-  height: auto;
-}
-
-.hero-image img:hover {
-  transform: scale(1.02);
-}
-
-/* === FAQ Section === */
-.faq-section {
-  padding: 2em 1em;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.faq-section h3 {
-  font-size: 1.75rem;
-  margin-bottom: 1em;
-}
-
-.faq-section details {
-  margin: 1em auto;
-  max-width: 600px;
-  background: #fbb13c;
-  padding: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: left;
-  color: #333;
-  font-weight: 600;
-}
-
-/* === Testimonials === */
-.testimonials {
-  background-color: #fff8f0;
-  padding: 2em 1em;
-  text-align: center;
-}
-
-.testimonials h3 {
-  font-size: 1.75rem;
-  margin-bottom: 1em;
-}
-
-.testimonial {
-  max-width: 600px;
-  margin: auto 0 1.5em;
-  font-style: italic;
-  color: #555;
-}
-
-/* === Call to Action Banner === */
-.cta-banner {
-  background-color: #218380; /* teal */
-  color: #fff;
-  padding: 2em 1em;
-  text-align: center;
-}
-
-.cta-banner h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5em;
-}
-
-/* === Footer === */
-footer {
-  background-color: #333;
-  color: white;
+/* === Header === */
+header {
   text-align: center;
   padding: 1.5em 1em;
-  font-size: 0.9rem;
 }
 
-footer a {
-  color: #fbb13c;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #fff;
+header h1 {
+  font-family: 'Herr Von Muellerhoff', cursive;
+  font-size: 2.5rem;
+  margin: 0;
 }
 
 /* === Gallery Grid === */
@@ -233,26 +53,38 @@ footer a:hover {
   padding: 16px;
 }
 
-.gallery img {
+.gallery-item {
+  position: relative;
   width: 100%;
-  height: 280px;            /* fixed uniform height */
-  object-fit: contain;      /* show whole image without cropping */
-  background-color: #fff8f0;/* blend with page bg in letterboxed areas */
+  padding-top: 125%; /* ~4:5 aspect ratio */
+  overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
   cursor: pointer;
+  background-color: #fff8f0;
 }
 
-.gallery img:hover {
+.gallery-item img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.gallery-item img:hover {
   transform: scale(1.05);
 }
 
-/* === Lightbox overlay styles with fade animation === */
+/* === Lightbox overlay === */
 .lightbox-overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.85);
   display: flex;
   justify-content: center;
@@ -268,7 +100,6 @@ footer a:hover {
   pointer-events: auto;
 }
 
-/* Lightbox content zoom animation */
 .lightbox-content {
   position: relative;
   max-width: 90vw;
@@ -301,7 +132,7 @@ footer a:hover {
   transform: scale(1.03);
 }
 
-/* Close and nav buttons */
+/* === Lightbox buttons === */
 .lightbox-close,
 .lightbox-prev,
 .lightbox-next {
@@ -333,7 +164,6 @@ footer a:hover {
   line-height: 35px;
   color: white;
   background: rgba(0,0,0,0.6);
-  border-radius: 50%;
   box-shadow: none;
 }
 
@@ -353,12 +183,7 @@ footer a:hover {
 
 /* === Responsive === */
 @media (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-image img {
-    max-width: 90%;
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
