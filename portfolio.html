@@ -5,81 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - Awaara Ghar</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Lightbox overlay styles */
-    .lightbox-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-    .lightbox-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .lightbox-content {
-      position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
-    }
-    .lightbox-content img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-      display: block;
-      margin: 0 auto;
-    }
-    .lightbox-close,
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.7);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 24px;
-      color: #333;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .lightbox-close {
-      top: 10px;
-      right: 10px;
-      transform: none;
-      font-size: 28px;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
-      color: white;
-      background: rgba(0,0,0,0.6);
-      border-radius: 50%;
-    }
-    .lightbox-close:hover,
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
-      background: rgba(255,255,255,0.9);
-    }
-    .lightbox-prev {
-      left: 10px;
-    }
-    .lightbox-next {
-      right: 10px;
-    }
-  </style>
 </head>
 <body>
   <nav>
@@ -94,30 +19,29 @@
   </header>
 
   <main class="gallery">
-    <img src="images/IMG_5970.JPG" alt="Henna design 1" />
-    <img src="images/IMG_5987.JPG" alt="Henna design 2" />
-    <img src="images/IMG_6022.JPG" alt="Henna design 3" />
-    <img src="images/IMG_6074.JPG" alt="Henna design 4" />
-    <img src="images/IMG_6194.JPG" alt="Henna design 5" />
-    <img src="images/IMG_6235.JPG" alt="Henna design 6" />
-    <img src="images/IMG_6241.JPG" alt="Henna design 7" />
+    <div class="gallery-item"><img src="images/IMG_5970.JPG" alt="Henna design 1" /></div>
+    <div class="gallery-item"><img src="images/IMG_5987.JPG" alt="Henna design 2" /></div>
+    <div class="gallery-item"><img src="images/IMG_6022.JPG" alt="Henna design 3" /></div>
+    <div class="gallery-item"><img src="images/IMG_6074.JPG" alt="Henna design 4" /></div>
+    <div class="gallery-item"><img src="images/IMG_6194.JPG" alt="Henna design 5" /></div>
+    <div class="gallery-item"><img src="images/IMG_6235.JPG" alt="Henna design 6" /></div>
+    <div class="gallery-item"><img src="images/IMG_6241.JPG" alt="Henna design 7" /></div>
   </main>
 
-  <!-- Lightbox container -->
-  <div class="lightbox-overlay" id="lightbox">
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox" tabindex="-1" hidden>
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
     <div class="lightbox-content">
-      <span class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</span>
-      <img src="" alt="" id="lightbox-img" />
-      <span class="lightbox-prev" id="lightbox-prev" aria-label="Previous">&#10094;</span>
-      <span class="lightbox-next" id="lightbox-next" aria-label="Next">&#10095;</span>
+      <img src="" alt="" />
     </div>
+    <button class="lightbox-next" aria-label="Next image">&#10095;</button>
   </div>
 
   <script>
-    // Navigation active link highlighting
+    // Highlight active nav link
     const links = document.querySelectorAll('nav a');
     const currentPage = window.location.pathname.split('/').pop();
-
     links.forEach(link => {
       if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
@@ -128,58 +52,64 @@
 
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const prevBtn = document.getElementById('lightbox-prev');
-    const nextBtn = document.getElementById('lightbox-next');
+    const lightboxImg = lightbox.querySelector('.lightbox-content img');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
 
-    const galleryImages = document.querySelectorAll('.gallery img');
     let currentIndex = 0;
 
     function showLightbox(index) {
       currentIndex = index;
-      const img = galleryImages[currentIndex];
+      const img = galleryItems[currentIndex];
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
+      lightbox.hidden = false;
       lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      lightbox.focus();
     }
 
-    function closeLightbox() {
+    function hideLightbox() {
       lightbox.classList.remove('active');
-      document.body.style.overflow = '';
+      setTimeout(() => {
+        lightbox.hidden = true;
+        lightboxImg.src = '';
+        lightboxImg.alt = '';
+      }, 400); // matches CSS fade duration
     }
 
     function showPrev() {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
       showLightbox(currentIndex);
     }
 
     function showNext() {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
+      currentIndex = (currentIndex + 1) % galleryItems.length;
       showLightbox(currentIndex);
     }
 
-    galleryImages.forEach((img, index) => {
-      img.style.cursor = 'pointer';
+    galleryItems.forEach((img, index) => {
       img.addEventListener('click', () => showLightbox(index));
     });
 
-    closeBtn.addEventListener('click', closeLightbox);
+    closeBtn.addEventListener('click', hideLightbox);
     prevBtn.addEventListener('click', showPrev);
     nextBtn.addEventListener('click', showNext);
 
-    // Close lightbox on clicking outside the image
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.hidden) return;
+      if (e.key === 'Escape') hideLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
     });
 
-    // Keyboard controls
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowLeft') showPrev();
-      else if (e.key === 'ArrowRight') showNext();
+    // Close lightbox clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        hideLightbox();
+      }
     });
   </script>
 </body>
