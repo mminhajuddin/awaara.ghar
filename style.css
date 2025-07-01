@@ -235,8 +235,9 @@ footer a:hover {
 
 .gallery img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 280px;            /* fixed uniform height */
+  object-fit: contain;      /* show whole image without cropping */
+  background-color: #fff8f0;/* blend with page bg in letterboxed areas */
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
