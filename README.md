@@ -1,2 +1,2 @@
-# awaara.ghar.github.io
+# awaaraghar.github.io
 awaara.ghar
