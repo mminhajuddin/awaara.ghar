@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About - Our Henna</title>
+  <title>About | Awaara Ghar</title>
+  <meta name="description" content="Learn about Awaara Ghar, a Chicago-based henna collective passionate about traditional and modern henna design." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <nav>
-  <a href="index.html">Home</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="about.html" class="active">About</a>
-  <a href="contact.html">Contact</a>
+  <div class="nav-container">
+    <a href="index.html" class="logo"><img src="images/redpink.png" alt="Awaara Ghar Logo" class="logo-image" /></a>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
 </nav>
 
   <header>
-    <h1>About Us</h1>
+    <h1 class="about-title">About Us</h1>
   </header>
 
   <main>
@@ -26,9 +35,16 @@
     <p>Check out our <a href="portfolio.html">portfolio</a> to see our work, or <a href="contact.html">get in touch</a> to book a session!</p>
   </main>
   <script>
-  const links = document.querySelectorAll('nav a');
-  const currentPage = window.location.pathname.split('/').pop();
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
 
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navLinks.classList.toggle("open");
+  });
+
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = window.location.pathname.split('/').pop();
   links.forEach(link => {
     if (link.getAttribute('href') === currentPage) {
       link.classList.add('active');

@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Awaara Ghar is a Chicago-based henna collective creating culturally rooted, intentional designs with warmth and artistry." />
-  <title>Awaara Ghar</title>
+  <meta name="description" content="Awaara Ghar - Chicago-based henna collective. View our portfolio, book a session, and learn about our culturally rooted designs." />
+  <title>Awaara Ghar | Home</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/aglogo-modified.png" />
 </head>
 <body>
   <!-- Navigation -->
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="contact.html" class="cta-button" style="margin-left:auto;" aria-label="Book a Session">Book a Session</a>
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="images/redpink.png" alt="Awaara Ghar Logo" class="logo-image" /></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
   </nav>
 
   <!-- Main Header -->
   <header class="main-header">
-    <img src="images/logo.png" alt="Awaara Ghar Logo" class="logo-image" />
-    <p class="tagline">Where friendship & creativity meet culturally informed designs</p>
+    <!-- Removed old logo image -->
+    <p class="tagline">where friendship & creativity meet culturally informed designs</p>
   </header>
 
   <!-- Hero Section -->
@@ -81,15 +89,24 @@
 
   <!-- Footer -->
   <footer>
-    <h4>Contact Information</h4>
-    <p>Email: <a href="mailto:mahamminhajuddin@gmail.com">mahamminhajuddin@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a></p>
+    <h4>contact information</h4>
+    <p>
+      <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer" aria-label="instagram" style="font-size:1.2em;">📷</a>
+      <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a>
+    </p>
   </footer>
 
   <script>
-    const links = document.querySelectorAll('nav a');
-    const currentPage = window.location.pathname.split('/').pop();
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
 
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      navLinks.classList.toggle("open");
+    });
+
+    const links = document.querySelectorAll('.nav-links a');
+    const currentPage = window.location.pathname.split('/').pop();
     links.forEach(link => {
       if (link.getAttribute('href') === currentPage) {
         link.classList.add('active');
