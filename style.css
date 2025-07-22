@@ -16,13 +16,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap');
 
-body, html, *, a, a:link, a:hover {
-  cursor: url('images/cursor.png') 16 16, pointer !important;
+html {
+  margin: 0;
+  padding: 0;
 }
-
 body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   font-family: 'Montserrat', Arial, sans-serif;
-  text-transform: lowercase;
 }
 
 h1, h2, h3, .about-title, .portfolio-title, .contact-title {
@@ -32,15 +34,15 @@ h1, h2, h3, .about-title, .portfolio-title, .contact-title {
 /* === Navigation === */
 nav {
   background-color: var(--color-primary);
-  padding: 0;
+  padding: 1em 2em;
   display: block;
   box-shadow: 0 2px 8px rgba(45,56,96,0.06);
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1100;
-  min-height: 64px;
+  z-index: 1200;
+  min-height: 56px;
 }
 nav a {
   color: var(--color-bg);
@@ -169,7 +171,7 @@ nav a.active {
   margin: 0 auto;
   padding: 0 1em;
   z-index: 1200;
-  min-height: 64px;
+  min-height: 56px;
 }
 
 /* === Header & Tagline === */
@@ -402,11 +404,20 @@ footer a {
     margin: 1em 0;
   }
   nav {
-    min-height: 56px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1200;
+    padding: 0.5em 0;
+  }
+  body {
+    padding-top: 56px;
   }
   .nav-container {
     padding: 0 0.75em;
-    min-height: 56px;
+    margin: 0;
+    justify-content: space-between;
   }
   .nav-links {
     right: 0;
@@ -439,7 +450,6 @@ footer a {
   color: #9f4949;
   letter-spacing: 2px;
   margin-bottom: 0.5em;
-  text-transform: lowercase;
 }
 
 .portfolio-title {
@@ -449,7 +459,6 @@ footer a {
   color: #9f4949;
   letter-spacing: 2px;
   margin-bottom: 0.5em;
-  text-transform: lowercase;
 }
 
 .about-title {
@@ -459,7 +468,6 @@ footer a {
   color: #9f4949;
   letter-spacing: 2px;
   margin-bottom: 0.5em;
-  text-transform: lowercase;
 }
 
 a, .cta-button, .nav-links a {
