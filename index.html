@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="images/aglogo-modified.png" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://awaara-ghar.com/" />
+  <meta property="og:title" content="Awaara Ghar | Home" />
+  <meta property="og:description" content="Awaara Ghar - Chicago-based henna collective. View our portfolio, book a session, and learn about our culturally rooted designs." />
+  <meta property="og:image" content="https://awaara-ghar.com/images/aglogo-modified.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://awaara-ghar.com/" />
+  <meta name="twitter:title" content="Awaara Ghar | Home" />
+  <meta name="twitter:description" content="Awaara Ghar - Chicago-based henna collective. View our portfolio, book a session, and learn about our culturally rooted designs." />
+  <meta name="twitter:image" content="https://awaara-ghar.com/images/aglogo-modified.png" />
 </head>
 <body>
   <!-- Navigation -->
@@ -36,11 +48,15 @@
   <section class="hero-section">
     <div class="hero-text">
       <h2>Tell Your Story Through Henna</h2>
-      <p>Experience the joy of culturally rooted henna created with care and intention.</p>
+      <p>Experience the joy of culturally rooted henna created with care and intention</p>
       <a href="portfolio.html" class="cta-button" aria-label="View our henna portfolio">View Portfolio</a>
     </div>
-    <div class="hero-image">
-      <img src="images/cover_image.jpg" alt="A detailed henna design on a hand" />
+    <div class="hero-image-asym" style="display:flex; gap:2em; align-items:center; justify-content:center; flex-wrap:wrap;">
+      <div style="display:flex; flex-direction:column; gap:1.2em;">
+        <img src="images/cover_image.jpg" alt="A detailed henna design on a hand" style="max-width:340px; width:100%; border-radius:14px; box-shadow:0 2px 12px rgba(159,73,73,0.10);" />
+        <img src="images/IMG_5970.JPG" alt="Henna design horizontal" style="max-width:340px; width:100%; border-radius:14px; box-shadow:0 2px 12px rgba(159,73,73,0.10);" />
+      </div>
+      <img src="images/IMG_7349.JPG" alt="Henna design closeup" style="max-width:320px; width:100%; border-radius:14px; box-shadow:0 2px 12px rgba(159,73,73,0.10);" />
     </div>
   </section>
 
@@ -49,11 +65,16 @@
     <h3>Frequently Asked Questions</h3>
     <details>
       <summary>What types of henna do you offer?</summary>
-      <p>We offer traditional bridal, party, and custom designs tailored to your needs.</p>
+      <p>We only practice with organic and natural henna to make sure our designs are safe and long lasting.</p>
+      <p>We also offer jagua, a natural alternative that stains immediately and darkens over 24-48 hours into a blue-black hue.</p>
+    </details>
+    <details>
+      <summary>What kind of services do you offer?</summary>
+      <p>We do party henna, henna stalls, workshops, photoshoots, corporate events, community markets, creative pop-ups, festivals, weddings, personal celebrations like birthdays, and bridal henna.</p>
     </details>
     <details>
       <summary>Do you use natural henna?</summary>
-      <p>Yes! Our blends are made with fresh, natural ingredients — no chemicals or dyes.</p>
+      <p>Yes! Our jagua and henna blends are made with fresh, natural ingredients — no chemicals or dyes.</p>
     </details>
     <details>
       <summary>What are the steps for proper aftercare?</summary>
@@ -61,25 +82,59 @@
         Then make a solution of lemon and sugar, and use a cotton pad to dab it on the henna once it is dry to keep it moist.
         Leave the paste on for several hours, or as long as possible. When removing the henna paste, scrape off the parts that
         have not flaked off. Try to avoid water on the stain for 24 hours. It will appear orange at first, and gradually
-        become darker over 24 hours.
+        become darker over 24 hours. Henna tends to stain darker on the palms of the hands and feet.
       </p>
       <p>For jagua, keep the gel on for about 3 hours for the best stain and wash it off with water afterwards. It stains immediately, 
         but after washing it will be very faint as it darkens in 24-48 hours. The final stain will turn out bluish black, with an
         ink-like finish!
       </p>
     </details>
+    
   </section>
+<!-- FAQ Section ends here -->
 
   <!-- Testimonials -->
   <section class="testimonials">
     <h3>Testimonials</h3>
-    <div class="testimonial">
-      <p>"The designs were stunning and the artists were so warm!"</p>
-      <span>★★★★★ – Hafsa H.</span>
-      <p>"It was such a fun experience to customize my henna with Awaara Ghar's natural and organic henna!"</p>
-      <span>★★★★★ – Safa L.</span>
+    <div class="testimonial-carousel">
+      <div class="testimonial-slide active">
+        <p>"the designs were stunning and the artists were so warm!"</p>
+        <span>★★★★★ – hafsa h.</span>
+      </div>
+      <div class="testimonial-slide">
+        <p>"it was such a fun experience to customize my henna with awaara ghar's natural and organic henna!"</p>
+        <span>★★★★★ – safa l.</span>
+      </div>
+      <div class="testimonial-slide">
+        <p>"awaara ghar made our event so special. everyone loved their designs!"</p>
+        <span>★★★★★ – zara m.</span>
+      </div>
+      <button class="testimonial-arrow left" aria-label="previous testimonial">&#8592;</button>
+      <button class="testimonial-arrow right" aria-label="next testimonial">&#8594;</button>
     </div>
   </section>
+<script>
+// Testimonial carousel logic
+(function() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const left = document.querySelector('.testimonial-arrow.left');
+  const right = document.querySelector('.testimonial-arrow.right');
+  let current = 0;
+  function showSlide(idx) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === idx);
+    });
+  }
+  left.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+  right.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+})();
+</script>
 
   <!-- Call-to-Action Banner -->
   <section class="cta-banner">
@@ -115,5 +170,18 @@
       }
     });
   </script>
+<div id="floating-accent">
+  <svg viewBox="0 0 64 64" width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="12" fill="#ffcc01"/>
+    <ellipse cx="32" cy="14" rx="6" ry="12" fill="#fad2ca"/>
+    <ellipse cx="32" cy="50" rx="6" ry="12" fill="#fad2ca"/>
+    <ellipse cx="14" cy="32" rx="12" ry="6" fill="#fad2ca"/>
+    <ellipse cx="50" cy="32" rx="12" ry="6" fill="#fad2ca"/>
+    <ellipse cx="20" cy="20" rx="6" ry="12" transform="rotate(-45 20 20)" fill="#fad2ca"/>
+    <ellipse cx="44" cy="44" rx="6" ry="12" transform="rotate(-45 44 44)" fill="#fad2ca"/>
+    <ellipse cx="44" cy="20" rx="12" ry="6" transform="rotate(-45 44 20)" fill="#fad2ca"/>
+    <ellipse cx="20" cy="44" rx="12" ry="6" transform="rotate(-45 20 44)" fill="#fad2ca"/>
+  </svg>
+</div>
 </body>
 </html>

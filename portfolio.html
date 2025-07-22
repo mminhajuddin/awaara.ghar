@@ -6,6 +6,18 @@
   <title>Portfolio | Awaara Ghar</title>
   <meta name="description" content="View the henna portfolio of Awaara Ghar, featuring traditional and modern designs from Chicago's premier henna collective." />
   <link rel="stylesheet" href="style.css" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://awaara-ghar.com/portfolio.html" />
+  <meta property="og:title" content="Portfolio | Awaara Ghar" />
+  <meta property="og:description" content="View the henna portfolio of Awaara Ghar, featuring traditional and modern designs from Chicago's premier henna collective." />
+  <meta property="og:image" content="https://awaara-ghar.com/images/aglogo-modified.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://awaara-ghar.com/portfolio.html" />
+  <meta name="twitter:title" content="Portfolio | Awaara Ghar" />
+  <meta name="twitter:description" content="View the henna portfolio of Awaara Ghar, featuring traditional and modern designs from Chicago's premier henna collective." />
+  <meta name="twitter:image" content="https://awaara-ghar.com/images/aglogo-modified.png" />
 </head>
 <body>
 <nav>
@@ -65,6 +77,9 @@
   <img src="images/IMG_7341.jpg" alt="Henna design 35" loading="lazy" />
   <img src="images/IMG_7346.jpg" alt="Henna design 36" loading="lazy" />
 </main>
+<div id="lightbox-overlay" style="display:none; position:fixed; z-index:2000; top:0; left:0; width:100vw; height:100vh; background:rgba(48,48,46,0.85); align-items:center; justify-content:center;">
+  <img id="lightbox-img" src="" alt="enlarged henna design" style="max-width:90vw; max-height:90vh; border-radius:18px; box-shadow:0 4px 32px rgba(0,0,0,0.25); background:#fff;" />
+</div>
 
 <footer>
   <h4>follow us on socials!</h4>
@@ -92,6 +107,31 @@
       link.classList.remove('active');
     }
   });
+
+// Lightbox logic
+const galleryImgs = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox-overlay');
+const lightboxImg = document.getElementById('lightbox-img');
+galleryImgs.forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  });
+});
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+});
 </script>
 </body>
 </html>

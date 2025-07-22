@@ -16,14 +16,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap');
 
+body, html, *, a, a:link, a:hover {
+  cursor: url('images/cursor.png') 16 16, pointer !important;
+}
+
 body {
-  font-family: 'Montserrat', 'Zilla Slab', Arial, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  margin: 0;
-  padding: 0;
-  line-height: 1.7;
+  font-family: 'Montserrat', Arial, sans-serif;
   text-transform: lowercase;
+}
+
+h1, h2, h3, .about-title, .portfolio-title, .contact-title {
+  font-family: 'Montserrat', Arial, sans-serif;
 }
 
 /* === Navigation === */
@@ -546,4 +549,94 @@ input[type="number"]:focus {
 .contact-form-card textarea {
   margin-top: 0.25em;
   margin-bottom: 1.2em;
+}
+
+.about-card {
+  background: #fad2ca;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(159,73,73,0.10), 0 1.5px 0 #ffcc01 inset;
+  border: 2.5px solid #fad2ca;
+  padding: 2.5em 1.5em;
+  max-width: 520px;
+  margin: 2em auto;
+  position: relative;
+}
+
+.testimonial-carousel {
+  position: relative;
+  max-width: 520px;
+  margin: 2em auto 0 auto;
+  text-align: center;
+}
+.testimonial-slide {
+  display: none;
+  background: #fff8f5;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(159,73,73,0.08);
+  padding: 2em 1.5em;
+  min-height: 120px;
+  transition: opacity 0.4s;
+}
+.testimonial-slide.active {
+  display: block;
+  opacity: 1;
+}
+.testimonial-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fad2ca;
+  border: none;
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  font-size: 1.5em;
+  color: #9f4949;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(159,73,73,0.10);
+  transition: background 0.2s, color 0.2s;
+  z-index: 2;
+}
+.testimonial-arrow.left { left: -1.5em; }
+.testimonial-arrow.right { right: -1.5em; }
+.testimonial-arrow:hover, .testimonial-arrow:focus {
+  background: #ffcc01;
+  color: #fff;
+}
+
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(48,48,46,0.85);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s;
+}
+#lightbox-overlay[style*="display: flex"] {
+  display: flex !important;
+}
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  background: #fff;
+  animation: popIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#floating-accent {
+  display: none;
 }
