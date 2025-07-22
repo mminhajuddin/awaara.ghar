@@ -475,3 +475,75 @@ a:focus, .cta-button:focus, .nav-links a:focus {
   transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(45,56,96,0.18);
 }
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+  width: 100%;
+  padding: 0.75em 1em;
+  border-radius: 10px;
+  border: 1.5px solid #fad2ca;
+  background: #fff8f5;
+  box-shadow: 0 2px 8px rgba(250,194,176,0.10);
+  font-size: 1rem;
+  margin-top: 0.25em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+  border-color: #9f4949;
+  box-shadow: 0 2px 12px rgba(159,73,73,0.15);
+  background: #fff0eb;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.75em 1em;
+  border-radius: 10px;
+  border: 1.5px solid #fad2ca;
+  background: #fff8f5;
+  box-shadow: 0 2px 8px rgba(250,194,176,0.10);
+  font-size: 1rem;
+  margin-top: 0.25em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+input[type="number"]:focus {
+  border-color: #9f4949;
+  box-shadow: 0 2px 12px rgba(159,73,73,0.15);
+  background: #fff0eb;
+}
+
+.contact-form-card {
+  background: #fad2ca;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(159,73,73,0.10), 0 1.5px 0 #ffcc01 inset;
+  border: 2.5px solid #fad2ca;
+  padding: 2.5em 1.5em;
+  max-width: 520px;
+  margin: 2em auto;
+  position: relative;
+}
+.contact-form-card label {
+  color: #9f4949;
+  font-family: 'Zilla Slab', serif;
+  font-size: 1.08em;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+  display: inline-block;
+  position: relative;
+}
+.contact-form-card label::before {
+  content: '✿ ';
+  color: #ffcc01;
+  font-size: 1em;
+  position: relative;
+  left: 0;
+}
+.contact-form-card input[type="text"],
+.contact-form-card input[type="email"],
+.contact-form-card input[type="tel"],
+.contact-form-card input[type="date"],
+.contact-form-card select,
+.contact-form-card textarea {
+  margin-top: 0.25em;
+  margin-bottom: 1.2em;
+}

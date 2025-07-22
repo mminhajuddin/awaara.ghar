@@ -23,38 +23,166 @@
   </div>
 </nav>
 
-<header>
-  <h1 class="contact-title">Contact Us</h1>
-</header>
-
 <main>
-  <p>Interested in booking? Send us a message!</p>
-  <form action="https://formspree.io/f/xvgrrpoe" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <input type="tel" name="phone" placeholder="Your Phone Number" />
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit" class="cta-button">Send</button>
-  </form>
+  <header>
+    <h1 class="contact-title">Contact Us</h1>
+  </header>
+  <section class="contact-form-card">
+    <p style="text-align:center; color: var(--color-secondary); font-size: 1.1rem;">interested in booking? send us a message!</p>
+    <form action="https://formspree.io/f/xvgrrpoe" method="POST" aria-label="contact form">
+      <div style="margin-bottom:1.2em;">
+        <label for="first_name">first name</label><br />
+        <input type="text" id="first_name" name="first_name" required style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="last_name">last name</label><br />
+        <input type="text" id="last_name" name="last_name" required style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="email">your email</label><br />
+        <input type="email" id="email" name="email" required style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="phone">your phone number</label><br />
+        <input type="tel" id="phone" name="phone" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="henna_jagua">henna or jagua?</label><br />
+        <select id="henna_jagua" name="henna_jagua" required style="width:100%; padding:0.75em; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;">
+          <option value="" disabled selected>select an option</option>
+          <option value="henna">henna</option>
+          <option value="jagua">jagua</option>
+          <option value="both">both</option>
+          <option value="not sure yet">not sure yet</option>
+        </select>
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="event_type">event type</label><br />
+        <select id="event_type" name="event_type" required style="width:100%; padding:0.75em; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;">
+          <option value="" disabled selected>select an event type</option>
+          <option value="workshop">workshop</option>
+          <option value="party henna">party henna</option>
+          <option value="photoshoot">photoshoot</option>
+          <option value="bridal">bridal</option>
+          <option value="corporate">corporate</option>
+          <option value="henna stall">henna stall</option>
+          <option value="other">other</option>
+        </select>
+      </div>
+      <div id="other-event-type-box" style="margin-bottom:1.2em; display:none;">
+        <label for="other_event_type">please specify your event type</label><br />
+        <input type="text" id="other_event_type" name="other_event_type" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="intricacy">level of intricacy</label><br />
+        <select id="intricacy" name="intricacy" style="width:100%; padding:0.75em; border-radius:6px; border:1px solid #ccc; box-sizing:border-box;">
+          <option value="" disabled selected>select a level</option>
+          <option value="basic">basic</option>
+          <option value="medium">medium</option>
+          <option value="full hands">full hands</option>
+          <option value="intricate">intricate</option>
+          <option value="other">other</option>
+        </select>
+      </div>
+      <div id="other-intricacy-box" style="margin-bottom:1.2em; display:none;">
+        <label for="other_intricacy">please specify intricacy level</label><br />
+        <input type="text" id="other_intricacy" name="other_intricacy" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="num_people">how many people are getting a design?</label><br />
+        <input type="number" id="num_people" name="num_people" min="1" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="venue">venue name and address</label><br />
+        <input type="text" id="venue" name="venue" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="event_date">event date</label><br />
+        <input type="date" id="event_date" name="event_date" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="budget">budget</label><br />
+        <input type="text" id="budget" name="budget" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="referral">how did you hear about awaara ghar?</label><br />
+        <input type="text" id="referral" name="referral" style="box-sizing:border-box;" />
+      </div>
+      <div style="margin-bottom:1.2em;">
+        <label for="anything_else">anything else you'd like to share?</label><br />
+        <textarea id="anything_else" name="anything_else" rows="5" style="width:100%; box-sizing:border-box;"></textarea>
+      </div>
+      <button type="submit" class="cta-button" style="width:100%;">submit</button>
+    </form>
+    <p style="text-align:center; color: var(--color-secondary); font-size: 1em; margin-top:1.5em;">
+      thank you for booking with us, you should expect a response in 24 - 48 hours<br />
+      take care &lt;3
+    </p>
+  </section>
 </main>
-  <script>
-  const hamburger = document.querySelector(".hamburger");
-  const navLinks = document.querySelector(".nav-links");
+<footer>
+  <h4>follow us on socials!</h4>
+  <p>
+    <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer" aria-label="instagram" style="font-size:1.2em;">📷</a>
+    <a href="https://instagram.com/awaara.ghar" target="_blank" rel="noopener noreferrer">@awaara.ghar</a>
+  </p>
+</footer>
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
 
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("open");
-    navLinks.classList.toggle("open");
-  });
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("open");
+  navLinks.classList.toggle("open");
+});
 
-  const links = document.querySelectorAll('.nav-links a');
-  const currentPage = window.location.pathname.split('/').pop();
-  links.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
+const links = document.querySelectorAll('.nav-links a');
+const currentPage = window.location.pathname.split('/').pop();
+links.forEach(link => {
+  if (link.getAttribute('href') === currentPage) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hennaJagua = document.getElementById('henna_jagua');
+  const eventType = document.getElementById('event_type');
+  const otherEventBox = document.getElementById('other-event-type-box');
+  const otherHennaJaguaBox = document.getElementById('other-henna-jagua-box');
+
+  hennaJagua.addEventListener('change', function() {
+    if (hennaJagua.value === 'not sure yet') {
+      eventType.style.display = 'none';
+      otherEventBox.style.display = 'none';
+      document.getElementById('other_event_type').required = false;
+      document.getElementById('event_type').required = false;
     } else {
-      link.classList.remove('active');
+      eventType.style.display = 'block';
+      if (hennaJagua.value === 'other') {
+        otherEventBox.style.display = 'block';
+        document.getElementById('other_event_type').required = true;
+      } else {
+        otherEventBox.style.display = 'none';
+        document.getElementById('other_event_type').required = false;
+      }
+      document.getElementById('event_type').required = true;
     }
   });
+
+  const intricacy = document.getElementById('intricacy');
+  const otherIntricacyBox = document.getElementById('other-intricacy-box');
+  intricacy.addEventListener('change', function() {
+    if (intricacy.value === 'other') {
+      otherIntricacyBox.style.display = 'block';
+      document.getElementById('other_intricacy').required = true;
+    } else {
+      otherIntricacyBox.style.display = 'none';
+      document.getElementById('other_intricacy').required = false;
+    }
+  });
+});
 </script>
 </body>
 </html>
