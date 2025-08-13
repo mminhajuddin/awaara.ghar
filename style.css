@@ -671,7 +671,7 @@ nav a.active {
 }
 
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -768,7 +768,7 @@ nav a.active {
     padding: 0;
   }
   .hamburger {
-    display: flex !important;
+    display: flex;
     position: relative;
     right: 0;
     margin-right: 0;
