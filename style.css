@@ -224,6 +224,10 @@ header h1 {
   border: 2px solid var(--color-peach);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pricing-tier:hover {
@@ -255,14 +259,14 @@ header h1 {
 }
 
 .pricing-image {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
+  max-width: 300px !important;
+  width: auto !important;
+  height: auto !important;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(45,56,96,0.1);
   margin: 1em auto;
   display: block;
-  object-fit: cover;
+  object-fit: contain !important;
 }
 
 .pricing-description {
@@ -787,8 +791,8 @@ nav a.active {
   }
   
   .pricing-image {
-    max-width: 220px;
-    width: 100%;
+    max-width: 280px !important;
+    width: auto !important;
   }
   
   .pricing-description {
