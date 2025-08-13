@@ -115,6 +115,16 @@ header h1 {
 }
 .hero-text {
   max-width: 500px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Desktop-specific centering for hero text */
+@media (min-width: 768px) {
+  .hero-text {
+    text-align: center;
+    margin: 0 auto;
+  }
 }
 .hero-text h2 {
   font-size: 2rem;
