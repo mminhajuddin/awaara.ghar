@@ -28,7 +28,7 @@ html, body {
 /* Utility container for consistent layout */
 .nav-container {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: space-between;
   position: relative;
   width: 100%;
@@ -634,6 +634,7 @@ input[type="number"]:focus {
 
 body {
   font-family: 'Montserrat', Arial, sans-serif;
+  padding-top: 80px;
 }
 
 nav {
@@ -641,7 +642,7 @@ nav {
   padding: 1em 2em;
   display: block;
   box-shadow: 0 2px 8px rgba(45,56,96,0.06);
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -713,18 +714,21 @@ nav a.active {
 }
 
 .nav-links {
-  display: flex;
-  flex-direction: row;
-  gap: 2em;
-  align-items: center;
-  position: relative;
-  background: transparent;
-  width: auto;
-  padding: 0;
-  box-shadow: none;
+  display: none;
+  flex-direction: column;
+  gap: 1em;
+  align-items: flex-start;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  background: var(--color-primary);
+  width: 200px;
+  padding: 0.5em 0.25em;
+  box-shadow: 0 4px 12px rgba(45,56,96,0.10);
   z-index: 1000;
-  border-radius: 0;
-  overflow: visible;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
 }
 .nav-links.open {
   display: flex;
@@ -765,7 +769,8 @@ nav a.active {
     max-height: 64px;
   }
   .nav-container {
-    padding: 0;
+    padding: 0 1em;
+    justify-content: space-between;
   }
   .hamburger {
     display: flex;
